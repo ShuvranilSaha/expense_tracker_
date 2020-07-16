@@ -1,6 +1,6 @@
 # expense_app
 
-A new Flutter project practice for udemy courses
+A new Flutter project practice for udemy courses using various widgets
 
 ## Getting Started
 
