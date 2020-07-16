@@ -1,6 +1,6 @@
 # expense_app
 
-A new Flutter project.
+A new Flutter project practice for udemy courses
 
 ## Getting Started
 
