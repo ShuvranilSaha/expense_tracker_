@@ -14,14 +14,14 @@ class TransactionList extends StatelessWidget {
     return _userTransactions.isEmpty
         ? Column(
             children: <Widget>[
-              Text(
+              const Text(
                 'No Transactions yet!',
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 50,
                 width: 10,
               ),
@@ -38,7 +38,7 @@ class TransactionList extends StatelessWidget {
             itemBuilder: (context, index) {
               return Card(
                 elevation: 5,
-                margin: EdgeInsets.symmetric(
+                margin: const EdgeInsets.symmetric(
                   vertical: 8,
                   horizontal: 5,
                 ),
@@ -46,7 +46,7 @@ class TransactionList extends StatelessWidget {
                   leading: CircleAvatar(
                     radius: 30,
                     child: Padding(
-                        padding: EdgeInsets.all(6),
+                        padding: const EdgeInsets.all(6),
                         child: FittedBox(
                             child: Text(
                                 'Rs ${_userTransactions[index].ammount}'))),
@@ -58,8 +58,13 @@ class TransactionList extends StatelessWidget {
                   subtitle: Text(
                     DateFormat.yMMMd().format(_userTransactions[index].date),
                   ),
-                  trailing: IconButton(
-                    icon: Icon(Icons.delete),
+                  trailing: FlatButton.icon(
+                    icon: const Icon(Icons.delete),
+                    label: const Text(
+                      'Delete',
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    textColor: Theme.of(context).errorColor,
                     onPressed: () =>
                         _deleteTransactions(_userTransactions[index].id),
                   ),
