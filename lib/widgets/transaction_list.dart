@@ -1,6 +1,5 @@
-import 'package:intl/intl.dart';
-
 import 'package:flutter/material.dart';
+import './transaction_item.dart';
 import '../models/transaction.dart';
 
 class TransactionList extends StatelessWidget {
@@ -34,44 +33,13 @@ class TransactionList extends StatelessWidget {
               )
             ],
           )
-        : ListView.builder(
-            itemBuilder: (context, index) {
-              return Card(
-                elevation: 5,
-                margin: const EdgeInsets.symmetric(
-                  vertical: 8,
-                  horizontal: 5,
-                ),
-                child: ListTile(
-                  leading: CircleAvatar(
-                    radius: 30,
-                    child: Padding(
-                        padding: const EdgeInsets.all(6),
-                        child: FittedBox(
-                            child: Text(
-                                'Rs ${_userTransactions[index].ammount}'))),
-                  ),
-                  title: Text(
-                    _userTransactions[index].title,
-                    style: Theme.of(context).textTheme.headline6,
-                  ),
-                  subtitle: Text(
-                    DateFormat.yMMMd().format(_userTransactions[index].date),
-                  ),
-                  trailing: FlatButton.icon(
-                    icon: const Icon(Icons.delete),
-                    label: const Text(
-                      'Delete',
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                    textColor: Theme.of(context).errorColor,
-                    onPressed: () =>
-                        _deleteTransactions(_userTransactions[index].id),
-                  ),
-                ),
-              );
-            },
-            itemCount: _userTransactions.length,
+        : ListView(
+            children: _userTransactions
+                .map((e) => TransactionItem(
+                    key: ValueKey(e.id),
+                    userTransactions: e,
+                    deleteTransactions: _deleteTransactions))
+                .toList(),
           );
   }
 }

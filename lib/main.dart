@@ -1,9 +1,10 @@
 import 'dart:io';
 
+import 'package:expense_app/widgets/transaction_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import 'package:expense_app/widgets/transaction_list.dart';
+import 'package:expense_app/widgets/transaction_item.dart';
 import './widgets/new_transactions.dart';
 import './widgets/chart.dart';
 import './models/transaction.dart';
